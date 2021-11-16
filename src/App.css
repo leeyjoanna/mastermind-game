@@ -1,38 +1,85 @@
-.App {
-  text-align: center;
+:root{
+  /* default in shades of blue */
+  --background: #F7F7FF;
+  --button-text: #35404b;
+  --button-bg: #bdd5ea94;
+ 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#App{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--background);
+}
+
+#Header{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 2px 30px 2px;
+}
+
+#title{
+  font-size: 50px;
+  text-align: center;
+}
+
+#description{
+  font-size: 35px;
+  font-weight: 200;
+  text-align: center;
+}
+
+#Main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#input-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px 0px 30px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.digit-select{
+  font-size: 45px;
+  padding: 5px 10px;
+  margin: 2px 10px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-text);
+  border-radius: 5px;
+}
+#submit-number, #reset-button{
+  font-size: 25px;
+  padding: 10px 20px;
+  margin: 0px 0px 0px 30px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 2px solid var(--button-text);
+  border-radius: 5px;
+}
+#submit-number:hover{
+  background-color: rgb(235, 213, 165);
+}
+#reset-button:hover{
+  background-color: rgb(215, 165, 235);
+}
+#submit-number:active, #reset-button:active{
+  transform: scale(0.8);
+}
+
+
+#result-container{
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+  font-weight: 300;
+  text-align: left;
+  margin: 30px 0px;
 }
