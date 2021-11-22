@@ -1,6 +1,15 @@
 # Mastermind Game
 [Play on Heroku!](https://jojo-mastermind.herokuapp.com/) 
 
+## To run game locally
+**Development mode**
+`git clone` this repository then run `yarn start` or `npm start` in the directory to run game locally.
+
+**Production mode**
+Install `http-server` then run on `build` directory.\
+Example: `yarn global add http-server` then run `yarn http-server ./build`.
+
+
 ## Gameplay
 
 User plays against computer to try and guess combination of randomly generated digits between 0-7.\
