@@ -7,7 +7,6 @@ import randService from './services/randnumber.js'
 function App() {
   const [ compNum, setCompNum ] = useState([])
 
-
   useEffect(() => {
     randService
       .getRand(4)
@@ -20,11 +19,11 @@ function App() {
     return false;
   }
   return (
-    <div id="App">
+    <div id="App" className="classic-theme">
       <Header/>
-      <Main compNum={compNum}/>
-      {/* computer: {compNum} */}
       <button id="reset-button" onClick={handleReset}>Reset game</button>
+      <Main compNum={compNum}/>
+      
     </div>
   );
 }

@@ -5,7 +5,7 @@ function Header(){
                 Let's play a game: Mastermind.
             </div>
             <div id="description"> 
-                Guess the correct code in 10 tries to win the game!
+                Guess the correct code before you run out of tries to win the game!
             </div>
         </div>
     )

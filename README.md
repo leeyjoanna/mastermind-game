@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Mastermind Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Gameplay
 
-## Available Scripts
+User plays against computer to try and guess combination of randomly generated digits between 0-7.\
+Feedback provided: number of correct digits, number of tries.\
+Optional feedback: log of each attempt and number of correct digits.
 
-In the project directory, you can run:
+## Customizations
 
-### `yarn start`
+Themes:
+* classic- clean light blue displays
+* night mode- contrast mode with dark background and light font
+* throwback- a simple homage to old Myspace layouts 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Difficulty:
+* easy- allows users 15 attempts
+* medium- allows users 10 attempts
+* hard- allows users 5 attempts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## React App
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+`index.js` renders `App.js` which contains all of the components for this game.\
+Component breakdown:
+* Header: title, description
+* Main: contains game play components 
+    * Result: prints correct number of digits and number of tries after each attempt, win message, or loss message
+    * Track: contains a button that toggles `<div>` of logged attempts (correct number of digits and attempt #)
+    * Customize: contains radio buttons to customize theme (CSS) or difficulty (# attempts allowed)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### State management
+`useEffect()` called once game first renders and makes calls to API to get 4 random digits.\
 
-### `yarn build`
+Game utilizes states to track game play logistics including:
+* API generated 'computer' number
+* Log of user's attempts and number of correct digits each time
+* Counter of attempts since most recent submission
+* Counter of number of correct digit for most recent submission
+* Boolean if user has guessed all correct digits
+* Number of max attempts related to difficulty 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### API integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`Axios` via `services` folder used to call to random generator API (https://www.random.org/clients/http/api/.\
+Generated random numbers via GET and these parameters: \
 
-### `yarn eject`
+| URL parameter | Value | Purpose |
+| --- | --- | --- |
+| num           | 4     | Number of integers requested |
+| min           | 0     | The smallest value returned  |
+| max           | 7     | The largest value returned |
+| col           | 1     | Num of columns used to display the returned values |
+| base          | 10    | Use base 10 system |
+| format        | plain | Returns response in a plain text. Generate a new random numbers |
+| rnd           | new   | Generate a new random numbers |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Deployed to Heroku
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+With a simple `Node.js` backend, this game is deployed to Heroku.\
+Depending on website activity, it may take some time to load the game due to free-tier account status.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,10 +1,15 @@
 import Result from './Result.js'
+import Track from './Track.js'
+import Customize from './Customize.js'
 import { useState } from 'react'
 
 function Main({compNum}){
     const [ isCorrect, setIsCorrect ] = useState(false)
     const [ numCorrect, setNumCorrect ] = useState(0)
     const [ numTries, setNumTries ] = useState(0)
+    const [ logNumCorrect, setLogNumCorrect ] = useState([])
+    const [ logTries, setLogTries ] = useState([])
+    const [ difficulty, setDifficulty ] = useState(10)
 
     const checkArray = (arr1, arr2) => {
         let counter = 0;
@@ -34,6 +39,12 @@ function Main({compNum}){
         console.log(checkArray(compNum, digitArray))
         const result = checkArray(compNum, digitArray)
 
+        let logNum = logNumCorrect
+        logNum.push(result.numCorrect)
+        setLogNumCorrect(logNum)
+        let logTry = logTries
+        logTry.push(digitArray)
+        setLogTries(logTry)
         let newNumTries = numTries + 1
         setNumTries(newNumTries)
         setIsCorrect(result.isCorrect)
@@ -62,7 +73,7 @@ function Main({compNum}){
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                        <option value="6">7</option>
+                        <option value="6">6</option>
                         <option value="7">7</option>
                     </select>
                     <select name="digit-3" id="digit-3" className="digit-select">
@@ -90,8 +101,12 @@ function Main({compNum}){
                     <button id="submit-number" onClick= {handleSubmit}>Submit</button>
                 </div>
             </div>
-            <div>
-                <Result isCorrect={isCorrect} numCorrect={numCorrect} numTries={numTries}/>
+            <div> 
+                <Result isCorrect={isCorrect} numCorrect={numCorrect} numTries={numTries} compNum={compNum} difficulty={difficulty}/>
+            </div>
+            <div id="custom-container">
+                <Track numTries={numTries} logNumCorrect={logNumCorrect} logTries={logTries}/>
+                <Customize difficulty={difficulty} setDifficulty={setDifficulty} />
             </div>
             
         </div>

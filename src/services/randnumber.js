@@ -5,4 +5,7 @@ const getRand = (number) => {
     return request.then(response => response.data)
 }
 
-export default {getRand}
+const exportedObj = {
+    getRand
+}
+export default exportedObj
