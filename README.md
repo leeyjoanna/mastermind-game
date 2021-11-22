@@ -49,7 +49,8 @@ Game utilizes states to track game play logistics including:
 
 ### API integration
 
-`Axios` via `services` folder used to call to random generator API (https://www.random.org/clients/http/api/.\
+`Axios` via `services` folder used to call to a [random generator API](https://www.random.org/clients/http/api/).\
+
 Generated random numbers via GET and these parameters: 
 
 | URL parameter | Value | Purpose |
