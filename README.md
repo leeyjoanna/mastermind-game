@@ -3,12 +3,10 @@
 
 ## To run game locally
 **Development mode**\
-`git clone` this repository then run `npm start` in the directory to run game locally.
+`git clone` this repository then run `yarn start` in the directory to run game locally.
 
 **Production mode**\
-Install `http-server` then run on `build` directory.\
-Example: `yarn global add http-server` then run `yarn http-server ./build`.
-
+Requires `http-server` dependency. Run `yarn http-server ./build` in directory to run game locally.
 
 ## Gameplay
 
