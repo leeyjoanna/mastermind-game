@@ -80,6 +80,12 @@
   margin: 10px 0px 30px 0px;
 }
 
+#selection-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .digit-select{
   font-size: 35px;
   padding: 5px 10px;

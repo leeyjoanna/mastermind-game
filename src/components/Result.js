@@ -1,6 +1,4 @@
-function Result({isCorrect, numCorrect, numTries, compNum, difficulty}){
-    console.log('result', isCorrect)
-
+function Result({isCorrect, numCorrect, numTries, compNum, difficultyTries}){
     if(isCorrect){
         document.getElementById('submit-number').disabled=true;
         return(
@@ -9,18 +7,18 @@ function Result({isCorrect, numCorrect, numTries, compNum, difficulty}){
             </div>
         )
     }
-    if(numTries >= difficulty){
+    if(numTries >= difficultyTries){
         document.getElementById('submit-number').disabled=true;
         return(
             <div id="result-container">
-                <div>Ooops, that was {difficulty} tries! The code was {compNum} this time. Press reset to play again :)</div>
+                <div>Ooops, that was {difficultyTries} tries! The code was {compNum} this time. Press reset to play again :)</div>
             </div>
         )
     }
     return(
         <div id="result-container">
             <div>Number of correct digits: {numCorrect}</div>
-            <div>Number of tries left: {difficulty - numTries}</div>
+            <div>Number of tries left: {difficultyTries - numTries}</div>
         </div>
     )
 }

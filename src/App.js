@@ -18,6 +18,7 @@ function App() {
     window.location.reload();
     return false;
   }
+  
   return (
     <div id="App" className="classic-theme">
       <Header/>

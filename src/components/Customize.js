@@ -1,32 +1,28 @@
 import { useState } from 'react'
 
-function Customize({difficulty, setDifficulty}) {
+function Customize({difficultyTries, setDifficultyTries}) {
     const [ theme, setTheme ] = useState('classic')
 
     const handleSelectTheme = (e) => {
         setTheme(e.target.value)
         switch(e.target.value){
             case "classic":
-                console.log('classic')
                 document.getElementById('App').className = "classic-theme";
                 break
             case "night":
-                console.log('night')
                 document.getElementById('App').className = "night-theme";
                 break
             case "throwback":
-                console.log('throwback')
                 document.getElementById('App').className = "throwback-theme";
                 break
             default: 
-                console.log('default')
                 document.getElementById('App').className = "classic-theme";
         }
         return false
     }
 
     const handleSelectDifficulty = (e) => {
-        setDifficulty(parseInt(e.target.value))
+        setDifficultyTries(parseInt(e.target.value))
         return false
     }
     
@@ -44,9 +40,9 @@ function Customize({difficulty, setDifficulty}) {
             <div id="difficulty-container">
                 Difficulty:
                 <div id="difficulty-input-container">
-                    <div><input type="radio" name="easy" value="15" checked={difficulty === 15} onChange={handleSelectDifficulty}/> Easy (15 tries)</div>
-                    <div><input type="radio" name="medium" value="10" checked={difficulty === 10} onChange={handleSelectDifficulty}/> Medium (10 tries)</div>
-                    <div><input type="radio" name="hard" value="5" checked={difficulty === 5} onChange={handleSelectDifficulty}/> Hard (5 tries)</div>
+                    <div><input type="radio" name="easy" value="15" checked={difficultyTries === 15} onChange={handleSelectDifficulty}/> Easy (15 tries)</div>
+                    <div><input type="radio" name="medium" value="10" checked={difficultyTries === 10} onChange={handleSelectDifficulty}/> Medium (10 tries)</div>
+                    <div><input type="radio" name="hard" value="5" checked={difficultyTries === 5} onChange={handleSelectDifficulty}/> Hard (5 tries)</div>
                 </div>
             </div>
         </div>
