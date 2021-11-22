@@ -5,7 +5,8 @@
 
 User plays against computer to try and guess combination of randomly generated digits between 0-7.\
 Feedback provided: number of correct digits, number of tries.\
-Optional feedback: log of each attempt and number of correct digits.
+Optional feedback: log of each attempt and number of correct digits.\
+Accessibility consideration: entire gameplay can be done with keyboard only, `enter` to press buttons and `space` to select from radio buttons
 
 ## Customizations
 
@@ -23,6 +24,7 @@ Difficulty:
 
 
 ## React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 `index.js` renders `App.js` which contains all of the components for this game.\
 Component breakdown:
@@ -33,7 +35,8 @@ Component breakdown:
     * `<Customize/>`: contains radio buttons to customize theme (CSS) or difficulty (# attempts allowed)
 
 ### State management
-`useEffect()` called once game first renders and makes calls to API to get 4 random digits.\
+
+`useEffect()` called once game first renders and makes calls to API to get 4 random digits.
 
 Game utilizes states to track game play logistics including:
 * API generated 'computer' number
@@ -64,3 +67,13 @@ Generated random numbers via GET and these parameters:
 With a simple `Node.js` backend, this game is deployed to Heroku.\
 Depending on website activity, it may take some time to load the game due to free-tier account status.
 
+### Future implementations
+
+* Variable difficulty configuration- change number of digits user must guess
+    * Would work similarly to existing difficulty customization except it would modify array length of `userDigits`
+* Music/sound effects
+    * Could be implemented through global music playing using `<audio>` or sound effects when buttons are clicked with `onclick` function triggering `<audio>` to play
+* Languages/internationalization
+    * Improve inclusivity and increase player pool
+    * Can become a helpful way for people to learn languages (replacing numbers with their written form in drop down)
+    * One option is with [react-i18next](https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-react-app-with-react-i18next)
