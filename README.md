@@ -6,7 +6,7 @@
 User plays against computer to try and guess combination of randomly generated digits between 0-7.\
 Feedback provided: number of correct digits, number of tries.\
 Optional feedback: log of each attempt and number of correct digits.\
-Accessibility consideration: entire gameplay can be done with keyboard only, `enter` to press buttons and `space` to select from radio buttons
+Accessibility consideration: entire gameplay can be done with keyboard only, `tab` to navigate, `enter` to press buttons and `space` to select from radio buttons
 
 ## Customizations
 
